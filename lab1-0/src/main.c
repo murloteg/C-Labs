@@ -161,7 +161,7 @@ void BoyerMooreAlgorithm(uc* sample, uc* buffer, short* shiftTable, int* indexIn
     }
 }
 
-void FreeData(uc* sample, short* shiftTable, uc* buffer, FILE* in)
+void CleanUp(uc* sample, short* shiftTable, uc* buffer, FILE* in)
 {
     free(sample);
     free(shiftTable);
@@ -180,7 +180,7 @@ int main(void)
     int indexInText = GetLengthOfSample(sample);
     BoyerMooreAlgorithm(sample, buffer, shiftTable, &indexInText, in);
 
-    FreeData(sample, shiftTable, buffer, in);
+    CleanUp(sample, shiftTable, buffer, in);
 
     return 0;
 }
